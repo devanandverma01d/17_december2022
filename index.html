@@ -5,37 +5,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating a simple calculator using HTML forms and switch conditional statement</title>
+    <title>Document</title>
     <style>
-        /* Here we can write CSS code*/
+        .st1 {
+            width: 600px;
+            height: 300px;
+            background-color: aquamarine;
+            padding: 20px;
+            margin: 100px 350px;
+            border-radius: 25px;
+
+        }
     </style>
-    <script>
-        /*Here we can write JS code*/
-    </script>
 </head>
 
 <body>
-    <form action="">
-        <input type="text" name="number1" size="7">
-        <select name="" id="">
+    <form action="" style="display: inline-block;" class="st1">
+        <h1>A Simple Calculator</h1>
+        <input type="text" name="number1">
+        <select name="operator">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
-        <input type="text" name="number2" size="7">
-        <input type="buitton" name="button" value="=">
+        <input type="text" name="number2">
+        <input type="button" value="=" onclick="dev('OK')">
+
+        <span id="result" style="display: inline-block;"></span>
     </form>
 
 
 
-    <script src="./js/script.js"></script>
-    <script>
-        // let's define fuctionn 
-        function dev() {
-            // This is Function body
-            //Every function return something
 
+    <script>
+
+
+
+        function dev() {
+            var n1 = document.querySelector('input[name="number1"]');
+            var n2 = document.querySelector('input[name="number2"]');
+            var res = document.getElementById('result');
+            var op = document.querySelector('select[name="operator"]');
+
+            var x = parseFloat(n1.value);
+            var y = parseFloat(n2.value);
+
+            // console.log(typeof n1.value);
+            // console.log(typeof n2.value);
+
+
+            // console.log(typeof x);
+            // console.log(typeof y);
+            // console.log(x + y);
+            // res.innerHTML = x + y;
+
+            switch (op.value) {
+                case '+':
+                    //console.log(x + y);
+                    res.innerHTML = x + y;
+                    break;
+                case '-':
+                    //console.log(x - y);
+                    res.innerHTML = x - y;
+                    break;
+                case '*':
+                    //console.log(x * y);
+                    res.innerHTML = x * y;
+                    break;
+                case '/':
+                    //console.log(x / y);
+                    res.innerHTML = x / y;
+                    break;
+
+            }
+
+            //console.log(op.value);
+
+            /*
+            switch(expression) {
+                case x:
+                // code block
+                break;
+                case y:
+                // code block
+                break;
+                default:
+                // code block
+}
+            */
         }
     </script>
 </body>
